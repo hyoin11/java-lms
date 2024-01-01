@@ -1,24 +1,26 @@
 package nextstep.sessions.domain.Builder;
 
-import nextstep.common.Builder.PeriodBuilder;
 import nextstep.common.Period;
 import nextstep.sessions.domain.Session;
 import nextstep.sessions.domain.SessionCharge;
 import nextstep.sessions.domain.SessionImages;
+import nextstep.sessions.domain.SessionProgressStatus;
+import nextstep.sessions.domain.SessionRecruitmentStatus;
 import nextstep.sessions.domain.SessionStatus;
 import nextstep.sessions.domain.SessionStudents;
 import nextstep.users.domain.NsUser;
 import nextstep.users.domain.builder.NsUserBuilder;
 
+import java.time.LocalDate;
 import java.time.LocalDateTime;
 
 public class SessionBuilder {
     private Long id = 1L;
     private String name = "테스트강의";
-    private Period date = new PeriodBuilder().build();
+    private Period date = new Period(LocalDate.now(), LocalDate.now().plusDays(15));
     private SessionImages images = new SessionImagesBuilder().build();
     private SessionCharge charge = new SessionChargeBuilder().build();
-    private SessionStatus status = new SessionStatusBuilder().build();
+    private SessionStatus status = new SessionStatus(SessionProgressStatus.PREPARING, SessionRecruitmentStatus.RECRUITING);
     private SessionStudents students = new SessionStudentsBuilder().build();
     private LocalDateTime createdAt = LocalDateTime.now();
     private LocalDateTime updatedAt = LocalDateTime.now();

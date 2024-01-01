@@ -6,7 +6,7 @@ import nextstep.sessions.domain.SessionImage;
 
 public class SessionImageBuilder {
     private Long id = 1L;
-    private ImageSize imageSize = new ImageSizeBuilder().build();
+    private ImageSize imageSize = new ImageSize(100, 300, 200);
     private ImageType type = ImageType.PNG;
 
     public SessionImageBuilder withImageId(Long imageId) {
